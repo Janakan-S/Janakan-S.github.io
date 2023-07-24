@@ -5,14 +5,15 @@ console.log(`
 dK .dMP dMP dMP dMP dMP dMP dMP dMP"AMF dMP dMP dMP dMP       dP .dMP  amr 
 VMMMP" dMP dMP dMP dMP dMP dMP dMP dMP dMP dMP dMP dMP        VMMMP"  dMP
 
-~ Let's go somewhere new.
+Let's go somewhere new
+github.com/janakan2466
 `);
 
 // Perform McKean-Vlasov process to randomly choose the video
 function getRandomVideo() {
   const videoOptions = ["resources/circuits.mp4", "resources/landscape.mp4"];
 
-  const alpha = 0.01; // Step size
+  const alpha = 0.01;
 
   // Get Gaussian random number
   function gaussianRandom() {
@@ -23,16 +24,14 @@ function getRandomVideo() {
     return Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
   }
 
-  // Initialize the current video index randomly
   let currentIndex = Math.floor(Math.random() * videoOptions.length);
 
-  // Simulate the process for a few steps
+  // Simulate the process in iterations
   for (let i = 0; i < 100; i++) {
     const drift = gaussianRandom();
     currentIndex = Math.max(0, Math.min(videoOptions.length - 1, currentIndex + alpha * drift));
   }
 
-  // Get final video index
   const randomIndex = Math.round(currentIndex);
 
   return videoOptions[randomIndex];
@@ -52,15 +51,11 @@ function setVideoSource() {
 }
 
 window.onload = function () {
-  // Remove the loading class after the page has fully loaded
   document.body.classList.remove("loading");
-
-  // Check if the video can be played successfully
   const videoElement = document.getElementById("background-video");
   videoElement.onerror = function () {
-    // Handle video playback errors, e.g., file not found or unsupported format
-    document.body.style.backgroundColor = "#000000"; // Set a black background
-    videoElement.style.display = "none"; // Hide the video element
+    document.body.style.backgroundColor = "#000000";
+    videoElement.style.display = "none";
   };
 
   setVideoSource();
