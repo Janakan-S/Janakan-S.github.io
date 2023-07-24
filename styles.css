@@ -3,7 +3,6 @@ html {
   margin: 0;
   padding: 0;
   height: 100%;
-  overflow: hidden;
   user-select: none;
 }
 
@@ -15,7 +14,7 @@ html {
   height: 100%;
   object-fit: cover;
   z-index: -1;
-  filter: brightness(18%);
+  filter: brightness(19%);
 }
 
 .title {
@@ -47,7 +46,7 @@ html {
   opacity: 0;
   animation: fadeIn 3s ease-in-out forwards;
   white-space: nowrap;
-  filter: brightness(25%);
+  filter: brightness(30%);
 }
 
 @keyframes fadeIn {
