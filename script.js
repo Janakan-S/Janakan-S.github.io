@@ -57,6 +57,20 @@ window.onload = function () {
     document.body.style.backgroundColor = "#000000";
     videoElement.style.display = "none";
   };
-
   setVideoSource();
+  document.addEventListener("visibilitychange", handleVisibilityChange);
+  function handleVisibilityChange() {
+    if (document.hidden) {
+      document.body.style.backgroundColor = "#000000";
+    } else {
+      document.body.style.backgroundColor = "";
+    }
+  }
 };
+
+
+
+
+
+
+
