@@ -42,9 +42,26 @@ function setVideoSource() {
   const videoElement = document.getElementById("background-video");
   const videoSourceElement = document.getElementById("video-source");
   const randomVideo = getRandomVideo();
+  const isLandscapeVideo = randomVideo.includes("landscape.mp4");
+  if (isLandscapeVideo) {
+    videoElement.classList.add("landscape");
+  }
   videoSourceElement.setAttribute("src", randomVideo);
   videoElement.load();
   videoElement.play();
 }
 
-window.onload = setVideoSource;
+window.onload = function () {
+  // Remove the loading class after the page has fully loaded
+  document.body.classList.remove("loading");
+
+  // Check if the video can be played successfully
+  const videoElement = document.getElementById("background-video");
+  videoElement.onerror = function () {
+    // Handle video playback errors, e.g., file not found or unsupported format
+    document.body.style.backgroundColor = "#000000"; // Set a black background
+    videoElement.style.display = "none"; // Hide the video element
+  };
+
+  setVideoSource();
+};
