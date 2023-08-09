@@ -64,6 +64,23 @@ body {
   white-space: nowrap;
 }
 
+.header {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.75vw;
+  font-weight: 100;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  opacity: 0;
+  animation: fadeIn 10s ease-in-out forwards;
+  white-space: nowrap;
+  filter: brightness(40%);
+}
+
 .footer-text {
   position: fixed;
   bottom: 20px;
@@ -75,9 +92,9 @@ body {
   z-index: 1;
   font-family: "Helvetica Neue", Arial, sans-serif;
   opacity: 0;
-  animation: fadeIn 3s ease-in-out forwards;
+  animation: fadeIn 10s ease-in-out forwards;
   white-space: nowrap;
-  filter: brightness(40%);
+  filter: brightness(25%);
 }
 
 @keyframes fadeIn {
@@ -85,6 +102,6 @@ body {
     opacity: 0;
   }
   100% {
-    opacity: 1;
+    opacity: 4;
   }
 }
